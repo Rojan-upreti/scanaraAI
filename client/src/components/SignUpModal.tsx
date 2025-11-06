@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X, Eye, EyeOff, Mail, Lock, User, Building, Phone, Sparkles } from 'lucide-react';
+import { X, Eye, EyeOff, Sparkles } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 interface SignUpModalProps {
@@ -68,8 +68,8 @@ const SignUpModal = ({ isOpen, onClose, onSwitchToSignIn }: SignUpModalProps) =>
         formData.password,
         formData.firstName,
         formData.lastName,
-        formData.companyName.trim() || undefined,
-        formData.phoneNumber
+        formData.phoneNumber,
+        formData.companyName.trim() || undefined
       );
       onClose();
     } catch (err: any) {

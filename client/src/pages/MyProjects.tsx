@@ -17,7 +17,6 @@ import {
 } from 'lucide-react';
 
 const MyProjects = () => {
-  const { user } = useAuth();
   const { apps, getAuditsByApp, loading } = useApps();
   const navigate = useNavigate();
   const [showCreateModal, setShowCreateModal] = useState(false);

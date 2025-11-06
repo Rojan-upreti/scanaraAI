@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useApps, type App, type Audit } from '../contexts/AppContext';
-import { useAuth } from '../contexts/AuthContext';
 import DeleteProjectModal from '../components/DeleteProjectModal';
 import api from '../config/api';
 import { 
@@ -11,7 +10,6 @@ import {
   XCircle, 
   Loader2,
   Play,
-  Clock,
   AlertCircle,
   FileText,
   CheckCircle2,
@@ -28,7 +26,7 @@ import {
 const AppDetail = () => {
   const { appName } = useParams<{ appName: string }>();
   const navigate = useNavigate();
-  const { getAppByName, updateApp, deleteApp, createAudit, updateAudit, getAuditsByApp, refreshData } = useApps();
+  const { getAppByName, updateApp, deleteApp, createAudit, getAuditsByApp, refreshData } = useApps();
   const [app, setApp] = useState<App | undefined>(undefined);
   const [audits, setAudits] = useState<Audit[]>([]);
   const [selectedConnection, setSelectedConnection] = useState<'cli' | 'extension' | null>(null);
@@ -142,31 +140,6 @@ const AppDetail = () => {
   };
 
 
-  const getSeverityColor = (severity: string) => {
-    switch (severity) {
-      case 'critical':
-        return 'text-apple-red bg-apple-red/10 dark:bg-apple-red/20 border-apple-red/20 dark:border-apple-red/30';
-      case 'warning':
-        return 'text-apple-orange bg-apple-orange/10 dark:bg-apple-orange/20 border-apple-orange/20 dark:border-apple-orange/30';
-      case 'info':
-        return 'text-apple-blue bg-apple-blue/10 dark:bg-apple-blue/20 border-apple-blue/20 dark:border-apple-blue/30';
-      default:
-        return 'text-apple-gray-600 dark:text-apple-gray-400 bg-apple-gray-100 dark:bg-apple-gray-800/50 border-apple-gray-200 dark:border-apple-gray-700';
-    }
-  };
-
-  const getSeverityIcon = (severity: string) => {
-    switch (severity) {
-      case 'critical':
-        return <XCircle size={20} />;
-      case 'warning':
-        return <AlertCircle size={20} />;
-      case 'info':
-        return <FileText size={20} />;
-      default:
-        return null;
-    }
-  };
 
   if (!app) {
     return (

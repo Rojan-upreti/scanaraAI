@@ -8,7 +8,6 @@ import {
   Zap,
   FileText,
   ArrowRight,
-  CheckCircle,
   Lock,
   Code,
   TrendingUp,
@@ -20,7 +19,6 @@ import {
 const Overview = () => {
   const { user } = useAuth();
   const { apps, getAuditsByApp } = useApps();
-  const navigate = useNavigate();
   const [showCreateModal, setShowCreateModal] = useState(false);
 
   const features = [

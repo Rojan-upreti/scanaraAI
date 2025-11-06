@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X, Loader2, CheckCircle2, Clock, Search, Brain, FileText } from 'lucide-react';
+import { X, Loader2, CheckCircle2, Clock, Search, Brain } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 interface RunAuditModalProps {

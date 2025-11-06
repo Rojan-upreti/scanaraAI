@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../contexts/ThemeContext';
-import { Moon, Sun, Menu, X, User, LogOut, Settings } from 'lucide-react';
+import { Moon, Sun, Menu, X, LogOut, Settings } from 'lucide-react';
 
 const Navbar = () => {
   const { user, logout } = useAuth();

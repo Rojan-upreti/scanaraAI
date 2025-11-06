@@ -9,7 +9,7 @@ interface CreateAppModalProps {
 }
 
 const CreateAppModal = ({ isOpen, onClose }: CreateAppModalProps) => {
-  const { createApp, apps } = useApps();
+  const { createApp } = useApps();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',

@@ -35,7 +35,7 @@ interface AuthContextType {
   user: User | null;
   profile: UserProfile | null;
   loginWithGoogle: () => Promise<void>;
-  signUpWithEmail: (email: string, password: string, firstName: string, lastName: string, companyName?: string, phoneNumber: string) => Promise<void>;
+  signUpWithEmail: (email: string, password: string, firstName: string, lastName: string, phoneNumber: string, companyName?: string) => Promise<void>;
   signInWithEmail: (email: string, password: string) => Promise<void>;
   updateUserProfile: (profile: Partial<UserProfile>) => Promise<void>;
   logout: () => Promise<void>;
@@ -51,6 +51,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!auth) return;
     // Listen for auth state changes
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser: FirebaseUser | null) => {
       if (firebaseUser) {
@@ -121,9 +122,10 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [auth]);
 
   const loginWithGoogle = async () => {
+    if (!auth) throw new Error('Auth not initialized');
     const provider = new GoogleAuthProvider();
     provider.addScope('profile');
     provider.addScope('email');
@@ -140,9 +142,10 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     password: string,
     firstName: string,
     lastName: string,
-    companyName: string | undefined,
-    phoneNumber: string
+    phoneNumber: string,
+    companyName?: string
   ) => {
+    if (!auth) throw new Error('Auth not initialized');
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     
     // Update display name
@@ -170,6 +173,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   const signInWithEmail = async (email: string, password: string) => {
+    if (!auth) throw new Error('Auth not initialized');
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     // Get ID token for backend
     const idToken = await getIdToken(userCredential.user);
@@ -223,6 +227,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   const logout = async () => {
+    if (!auth) throw new Error('Auth not initialized');
     await firebaseSignOut(auth);
     localStorage.removeItem('idToken');
     // Auth state listener will handle the rest

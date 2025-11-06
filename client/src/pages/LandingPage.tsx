@@ -8,8 +8,6 @@ import {
   Zap, 
   FileText, 
   ArrowRight, 
-  CheckCircle, 
-  Clock,
   Lock,
   Code,
   TrendingUp,
