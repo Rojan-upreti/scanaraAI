@@ -10,8 +10,6 @@ import {
   XCircle, 
   Loader2,
   Play,
-  AlertCircle,
-  FileText,
   CheckCircle2,
   Copy,
   Eye,
@@ -32,7 +30,7 @@ const AppDetail = () => {
   const [selectedConnection, setSelectedConnection] = useState<'cli' | 'extension' | null>(null);
   const [isCheckingConnection, setIsCheckingConnection] = useState(false);
   const [isRunningAudit, setIsRunningAudit] = useState(false);
-  const [currentAuditId, setCurrentAuditId] = useState<string | null>(null);
+  const [_currentAuditId, setCurrentAuditId] = useState<string | null>(null);
   const [apiKeyVisible, setApiKeyVisible] = useState(false);
   const [copied, setCopied] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
