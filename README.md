@@ -121,3 +121,4 @@ Both servers can run simultaneously:
 
 The frontend will automatically connect to the backend API.
 
+# scanaraAI
