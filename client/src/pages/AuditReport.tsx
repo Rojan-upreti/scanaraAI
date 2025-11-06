@@ -9,6 +9,7 @@ const AuditReport = () => {
   const { audits, updateAudit, loading } = useApps();
   const [copied, setCopied] = useState(false);
   const [audit, setAudit] = useState<any>(null);
+  const [isUpdating, setIsUpdating] = useState(false);
 
   useEffect(() => {
     if (reportId) {
