@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply antialiased;
+  }
+  
+  body {
+    @apply bg-apple-gray-50 dark:bg-apple-gray-900 text-apple-gray-900 dark:text-apple-gray-100 transition-colors duration-300;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .glass-effect {
+    @apply bg-white/70 dark:bg-apple-gray-900/70 backdrop-blur-apple border border-apple-gray-200/50 dark:border-apple-gray-800/50;
+  }
+  
+  .glass-card {
+    @apply bg-white/80 dark:bg-apple-gray-900/80 backdrop-blur-apple-lg border border-apple-gray-200/60 dark:border-apple-gray-800/60;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-apple-lg hover:-translate-y-0.5;
+  }
+  
+  .apple-button {
+    @apply px-6 py-3 rounded-apple font-medium transition-all duration-200;
+    @apply active:scale-[0.98];
+  }
+  
+  .apple-button-primary {
+    @apply apple-button bg-apple-blue text-white;
+    @apply hover:bg-apple-blueDark shadow-apple;
+    @apply active:shadow-apple-inset;
+  }
+  
+  .apple-button-secondary {
+    @apply apple-button bg-apple-gray-100 dark:bg-apple-gray-800 text-apple-gray-900 dark:text-apple-gray-100;
+    @apply hover:bg-apple-gray-200 dark:hover:bg-apple-gray-700;
+  }
+  
+  .apple-button-danger {
+    @apply apple-button bg-apple-red text-white;
+    @apply hover:bg-red-600 dark:hover:bg-red-700 shadow-apple;
+    @apply active:shadow-apple-inset;
+  }
+  
+  .apple-input {
+    @apply w-full px-4 py-3 rounded-apple;
+    @apply bg-apple-gray-100 dark:bg-apple-gray-800;
+    @apply border border-apple-gray-200 dark:border-apple-gray-700;
+    @apply text-apple-gray-900 dark:text-apple-gray-100;
+    @apply placeholder:text-apple-gray-500 dark:placeholder:text-apple-gray-400;
+    @apply focus:outline-none focus:ring-2 focus:ring-apple-blue focus:ring-offset-2;
+    @apply focus:ring-offset-apple-gray-50 dark:focus:ring-offset-apple-gray-900;
+    @apply transition-all duration-200;
+  }
+  
+  .apple-card {
+    @apply bg-white dark:bg-apple-gray-900 rounded-apple-lg;
+    @apply border border-apple-gray-200 dark:border-apple-gray-800;
+    @apply shadow-apple;
+  }
+  
+  .apple-gradient {
+    @apply bg-apple-gray-900 dark:bg-apple-gray-800;
+  }
+  
+  .text-apple-gradient {
+    @apply bg-gradient-to-r from-apple-blue to-apple-purple bg-clip-text text-transparent;
+  }
+}

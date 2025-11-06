@@ -1,0 +1,22 @@
+[
+  {
+    "userId": "a5KBYTnpeIbSFi2Xo4ifISuQJr13",
+    "name": "assa",
+    "description": "asdsa",
+    "connectionType": null,
+    "isConnected": false,
+    "id": "1762408540297",
+    "apiKey": "sk_q5e9nupa18a34smyy95sok",
+    "createdAt": "2025-11-06T05:55:40.297Z"
+  },
+  {
+    "userId": "a5KBYTnpeIbSFi2Xo4ifISuQJr13",
+    "name": "asdasd",
+    "description": "",
+    "connectionType": null,
+    "isConnected": false,
+    "id": "1762408543746",
+    "apiKey": "sk_p8c963patajgmdp18tkc95",
+    "createdAt": "2025-11-06T05:55:43.746Z"
+  }
+]
